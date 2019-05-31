@@ -17,7 +17,7 @@ module.exports.allergies = (req, res) => {
 
         // API for allergies POST
         var ptId = req.body.ptId
-        var data = req.body.data
+        var data = JSON.parse(req.body.data)
 
         db.json_set(`${config.db_keys.allergies}_${ptId}`, '.', JSON.stringify(data), function (err) {
             if (err) {
@@ -44,7 +44,7 @@ module.exports.medicians = (req, res) => {
 
         // API for medicians POST
         var ptId = req.body.ptId
-        var data = req.body.data
+        var data = JSON.parse(req.body.data)
 
         db.json_set(`${config.db_keys.medicians}_${ptId}`, '.', JSON.stringify(data), function (err) {
             if (err) {
@@ -71,7 +71,7 @@ module.exports.problems = (req, res) => {
 
         // API for problems POST
         var ptId = req.body.ptId
-        var data = req.body.data
+        var data = JSON.parse(req.body.data)
 
         db.json_set(`${config.db_keys.problems}_${ptId}`, '.', JSON.stringify(data), function (err) {
             if (err) {
