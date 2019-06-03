@@ -2,7 +2,7 @@ FROM node:8.11.1
 
 # install dependencies
 WORKDIR /usr/src/app
-COPY package*.json /usr/src/app
+COPY package*.json /usr/src/app/
 RUN npm cache clean --force && npm install
 
 # copy app source to image _after_ npm install so that
