@@ -27,3 +27,11 @@ We use this to show how;
 eg http:// (local host) :3000/api/allergies?ptId=12346&transform=TransformB-Allergy-UI2FHIR
 
 See example data & transforms in config file
+
+Searching on the Redis DB is by key 
+eg
+https://github.com/RippleOSI/Node-JSON-Redis-exp1/blob/e5631660ee51e8448a6a51e4e3faac7c165b3ea6/controllers/apiController.js#L31
+```
+db.json_set(`${req.params.datatype}_${ptId}`, '.', JSON.stringify(data), function (err) {
+```
+which allows for a search like this; JSON.GET "allergies_12345" within Redis
